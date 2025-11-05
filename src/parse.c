@@ -39,7 +39,7 @@ int output_file(int fd, struct dbheader_t *dbhdr, struct employee_t *employees)
 	return STATUS_SUCCESS;
 }
 
-int validate_db_header(int fd, struct dbheader_t **headerOut)
+int validate_db_header(int fd, int test, struct dbheader_t **headerOut)
 {
 	if (fd < 0)
 	{
