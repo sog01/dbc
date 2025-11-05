@@ -180,7 +180,7 @@ int create_db_header(struct dbheader_t **headerOut)
 	return STATUS_SUCCESS;
 }
 
-int list_employees(struct dbheader_t *dbhdr, struct employee_t *employees)
+int list_employees(int fd, struct dbheader_t *dbhdr, struct employee_t *employees)
 {
 	// if (NULL == dbhdr)
 	// 	return STATUS_ERROR;
