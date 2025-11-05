@@ -94,28 +94,28 @@ int validate_db_header(int fd, struct dbheader_t **headerOut)
 
 int read_employees(int fd, struct dbheader_t *dbhdr, struct employee_t **employeesOut)
 {
-	if (fd < 0)
-	{
-		printf("Got a bad FD from the user\n");
-		return STATUS_ERROR;
-	}
+	// if (fd < 0)
+	// {
+	// 	printf("Got a bad FD from the user\n");
+	// 	return STATUS_ERROR;
+	// }
 
-	int count = dbhdr->count;
+	// int count = dbhdr->count;
 
-	struct employee_t *employees = calloc(count, sizeof(struct employee_t));
-	if (employees == NULL)
-	{
-		printf("Calloc failed\n");
-		return STATUS_ERROR;
-	}
+	// struct employee_t *employees = calloc(count, sizeof(struct employee_t));
+	// if (employees == NULL)
+	// {
+	// 	printf("Calloc failed\n");
+	// 	return STATUS_ERROR;
+	// }
 
-	read(fd, employees, count * sizeof(struct employee_t));
+	// read(fd, employees, count * sizeof(struct employee_t));
 
-	for (int i = 0; i < count; i++)
-	{
-		employees[i].hours = ntohl(employees[i].hours);
-	}
-	*employeesOut = employees;
+	// for (int i = 0; i < count; i++)
+	// {
+	// 	employees[i].hours = ntohl(employees[i].hours);
+	// }
+	// *employeesOut = employees;
 	return STATUS_SUCCESS;
 }
 
