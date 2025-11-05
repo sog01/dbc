@@ -180,6 +180,11 @@ int create_db_header(struct dbheader_t **headerOut)
 
 int list_employees(struct dbheader_t *dbhdr, struct employee_t *employees)
 {
+	if (NULL == dbhdr)
+		return STATUS_ERROR;
+	if (NULL == employees)
+		return STATUS_ERROR;
+
 	int i = 0;
 	for (; i < dbhdr->count; i++)
 	{
@@ -189,5 +194,5 @@ int list_employees(struct dbheader_t *dbhdr, struct employee_t *employees)
 		printf("\tHours: %d\n", employees[i].hours);
 	}
 
-	return 0;
+	return STATUS_SUCCESS;
 }
