@@ -121,16 +121,17 @@ int read_employees(int fd, struct dbheader_t *dbhdr, struct employee_t **employe
 
 int add_employee(struct dbheader_t *dbhdr, struct employee_t *employees, char *addstring)
 {
+	printf("%s\n", addstring);
+
 	char *name = strtok(addstring, ",");
 
 	char *addr = strtok(NULL, ",");
 
 	char *hours = strtok(NULL, ",");
 
-	printf("name = %s, addr = %s, hours = %s\n", name, addr, hours);
+	printf("%s %s %s\n", name, addr, hours);
 
 	strncpy(employees[dbhdr->count - 1].name, name, sizeof(employees[dbhdr->count - 1].name));
-
 	strncpy(employees[dbhdr->count - 1].address, addr, sizeof(employees[dbhdr->count - 1].address));
 
 	employees[dbhdr->count - 1].hours = atoi(hours);
