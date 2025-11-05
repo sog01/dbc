@@ -48,7 +48,7 @@ int validate_db_header(int fd, struct dbheader_t **headerOut)
 	}
 
 	struct dbheader_t *header = calloc(1, sizeof(struct dbheader_t));
-	if (header == NULL)
+	if (header == (void *)-1)
 	{
 		printf("Malloc failed create a db header\n");
 		return STATUS_ERROR;
@@ -180,21 +180,21 @@ int create_db_header(struct dbheader_t **headerOut)
 	return STATUS_SUCCESS;
 }
 
-int list_employees(int fd, struct dbheader_t *dbhdr, struct employee_t *employees)
+int list_employees(struct dbheader_t *dbhdr, struct employee_t *employees)
 {
-	// if (NULL == dbhdr)
-	// 	return STATUS_ERROR;
-	// if (NULL == employees)
-	// 	return STATUS_ERROR;
+	if (NULL == dbhdr)
+		return STATUS_ERROR;
+	if (NULL == employees)
+		return STATUS_ERROR;
 
-	// int i = 0;
-	// for (; i < dbhdr->count; i++)
-	// {
-	// 	printf("Employee %d\n", i);
-	// 	printf("\tName: %s\n", employees[i].name);
-	// 	printf("\tAddress: %s\n", employees[i].address);
-	// 	printf("\tHours: %d\n", employees[i].hours);
-	// }
+	int i = 0;
+	for (; i < dbhdr->count; i++)
+	{
+		printf("Employee %d\n", i);
+		printf("\tName: %s\n", employees[i].name);
+		printf("\tAddress: %s\n", employees[i].address);
+		printf("\tHours: %d\n", employees[i].hours);
+	}
 
 	return STATUS_SUCCESS;
 }
