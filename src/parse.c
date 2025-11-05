@@ -41,6 +41,10 @@ int output_file(int fd, struct dbheader_t *dbhdr, struct employee_t *employees)
 
 int validate_db_header(int fd, struct dbheader_t **headerOut)
 {
+	if (NULL == headerOut)
+		return STATUS_ERROR;
+	if (NULL == *headerOut)
+		return STATUS_ERROR;
 	if (fd < 0)
 	{
 		printf("Got a bad FD from the user\n");
